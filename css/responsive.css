@@ -1,0 +1,33 @@
+/* Alpha-Seeker — all media queries, hoisted in original relative order
+   Extracted verbatim from Alpha-Seeker.html lines 335, 340, 351, 402, 403, 415, 454, 591. No rules changed. */
+
+/* MUST be the last stylesheet: these override component rules by source order alone
+   (this stylesheet contains zero !important). Relative order matters — e.g. max-width:900px
+   must precede max-width:560px for .macro-tiles. Do not reorder. */
+
+@media(max-width:860px){
+  .sig-metrics{grid-template-columns:1fr 1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .admin-desk-tabs{flex-direction:column}
+}
+@media(max-width:680px){
+  .filter-inner{flex-direction:column;align-items:flex-start}
+  .theme-tabs{gap:3px}
+  .theme-tab{padding:6px 10px;font-size:12px}
+  .stat-item{padding:5px 12px}
+  .modal{margin:8px}
+  .modal-body,.modal-head{padding:16px}
+  .modal-tabs{padding:0 16px}
+  .admin-body{padding:16px}
+  .screener-grid{grid-template-columns:1fr}
+}
+@media(max-width:460px){
+  .sig-metrics{grid-template-columns:1fr}
+  .modal-price{font-size:22px}
+  .modal-ticker{font-size:24px}
+}
+@media(max-width:900px){.macro-tiles{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.macro-tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.macro-note{margin-left:0;max-width:none}.macro-inner{gap:12px}}
+@media(max-width:560px){.tl-admin-grid{grid-template-columns:1fr}}
+@media(max-width:860px){.nl-wrap{grid-template-columns:1fr;gap:28px}}

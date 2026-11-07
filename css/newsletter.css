@@ -1,0 +1,24 @@
+/* Alpha-Seeker — screener intro + newsletter card
+   Extracted verbatim from Alpha-Seeker.html lines 570-591. No rules changed. */
+
+.scr-intro{padding:6px 0 18px}
+.scr-h1{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.scr-h1 span{color:var(--mom)}
+.scr-p{font-size:14px;color:var(--t2);max-width:640px}
+.nl-section{border-top:1px solid var(--border);background:var(--bg);padding:64px 0}
+.nl-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.nl-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mom);margin-bottom:16px}
+.nl-dot{width:6px;height:6px;border-radius:50%;background:var(--mom);box-shadow:0 0 10px var(--mom);animation:pulse 2s infinite}
+.nl-title{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+.nl-sub{font-size:15px;color:var(--t2);margin-bottom:22px;max-width:520px}
+.nl-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.nl-feats li{display:flex;gap:10px;font-size:14px;color:var(--text)}
+.nl-feats li span{color:var(--green);font-weight:700}
+.nl-foot{font-size:12px;color:var(--t3);max-width:500px;line-height:1.6}
+.nl-card{background:var(--card);border:1px solid rgba(255,107,53,.3);border-radius:var(--rl);padding:30px;box-shadow:0 0 40px rgba(255,107,53,.07)}
+.nl-card h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.nl-card>p{font-size:13px;color:var(--t2);margin-bottom:20px}
+.nl-card label{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t3);margin:0 0 6px}
+.nl-card input{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:9px;color:var(--text);font-family:inherit;font-size:14px;padding:12px 14px;margin-bottom:14px;outline:none;transition:border-color .2s}
+.nl-card input:focus{border-color:var(--mom)}
+.nl-note{text-align:center;font-size:11px;color:var(--t3);margin-top:12px}

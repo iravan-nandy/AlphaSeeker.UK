@@ -1,0 +1,94 @@
+/* Alpha-Seeker — pricing, admin panel, admin login, disclaimer, footer
+   Extracted verbatim from Alpha-Seeker.html lines 242-333. No rules changed. */
+
+/* PRICING */
+.pricing-section{background:var(--bg2);border-top:1px solid var(--border);padding:80px 0}
+.pricing-header{text-align:center;margin-bottom:48px}
+.pricing-header h2{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+.pricing-header p{color:var(--t2);font-size:16px;max-width:480px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto}
+.pricing-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:36px;position:relative}
+.pricing-card.featured{border-color:rgba(0,200,240,.3);box-shadow:0 0 40px rgba(0,200,240,.07)}
+.early-bird{position:absolute;top:18px;right:18px;background:rgba(245,200,66,.12);color:var(--gold);
+  border:1px solid rgba(245,200,66,.25);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.pricing-tier{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);margin-bottom:14px}
+.pricing-amount{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:800;line-height:1;margin-bottom:5px}
+.pricing-amount sup{font-size:20px;vertical-align:super}
+.pricing-period{font-size:12px;color:var(--t3);margin-bottom:24px}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.pricing-features li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--t2)}
+.feat-check{color:var(--green);font-size:14px}
+.feat-x{color:var(--t3);font-size:14px}
+.pricing-note{text-align:center;margin-top:28px;font-size:12px;color:var(--t3);max-width:480px;margin-left:auto;margin-right:auto}
+.pricing-note strong{color:var(--gold)}
+
+.beta-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(255,107,53,.15);color:var(--mom);border:1px solid rgba(255,107,53,.3);margin-left:6px}
+
+/* ADMIN PANEL */
+.admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:500;
+  display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+.admin-overlay.open{display:flex}
+.admin-panel{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rl);
+  width:100%;max-width:900px;margin:auto}
+.admin-head{padding:24px 28px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between}
+.admin-head h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700}
+.admin-head p{font-size:12px;color:var(--t3);margin-top:4px}
+.admin-body{padding:28px}
+.admin-row{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.admin-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);min-width:100px}
+.admin-select,.admin-input,.admin-textarea{
+  background:var(--card);border:1px solid var(--border2);border-radius:8px;
+  color:var(--text);font-family:inherit;font-size:14px;padding:10px 14px;transition:border-color .2s;outline:none}
+.admin-select:focus,.admin-input:focus,.admin-textarea:focus{border-color:var(--prec)}
+.admin-select{cursor:pointer}
+.admin-input{flex:1;min-width:200px}
+.admin-textarea{width:100%;min-height:120px;resize:vertical;line-height:1.6}
+.admin-desk-tabs{display:flex;gap:8px;margin-bottom:24px}
+.admin-desk-tab{padding:9px 18px;border-radius:9px;font-size:13px;font-weight:600;
+  cursor:pointer;background:transparent;border:1px solid var(--border);color:var(--t2);font-family:inherit}
+.admin-desk-tab.active[data-addesk="precision"]{background:var(--prec-d);color:var(--prec);border-color:rgba(0,200,240,.3)}
+.admin-desk-tab.active[data-addesk="momentum"]{background:var(--mom-d);color:var(--mom);border-color:rgba(255,107,53,.3)}
+.admin-content-area{display:none}
+.admin-content-area.active{display:block}
+.admin-field{margin-bottom:18px}
+.admin-field label{display:block;font-size:12px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.img-preview{width:100%;max-height:180px;object-fit:contain;border-radius:8px;border:1px solid var(--border);margin-top:8px;display:none}
+.admin-save-btn{padding:11px 24px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;border:none}
+.admin-save-btn.prec{background:var(--prec);color:#050510}
+.admin-save-btn.mom{background:var(--mom);color:#050510}
+.admin-save-btn:hover{transform:translateY(-1px);opacity:.9}
+.admin-save-status{font-size:12px;color:var(--green);margin-left:10px;opacity:0;transition:opacity .3s}
+.admin-save-status.show{opacity:1}
+.published-list{margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.published-list h3{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:14px}
+.published-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.pub-item{background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:10px 12px;font-size:12px;display:flex;align-items:center;justify-content:space-between}
+.pub-dots{display:flex;gap:4px}
+.pub-dot{width:7px;height:7px;border-radius:50%;background:var(--border2)}
+.pub-dot.set{background:var(--green)}
+
+/* Admin login */
+.admin-login{background:var(--card);border:1px solid var(--border2);border-radius:var(--rl);
+  padding:40px;max-width:360px;margin:auto;text-align:center}
+.admin-login h2{font-size:22px;margin-bottom:8px;font-family:'Space Grotesk',sans-serif}
+.admin-login p{color:var(--t2);font-size:14px;margin-bottom:24px}
+.admin-login-input{width:100%;padding:12px 16px;border-radius:9px;
+  background:var(--bg);border:1px solid var(--border2);color:var(--text);
+  font-size:15px;font-family:inherit;outline:none;text-align:center;letter-spacing:.1em;margin-bottom:14px}
+.admin-login-input:focus{border-color:var(--prec)}
+.admin-login-error{font-size:13px;color:var(--red);margin-top:8px;display:none}
+
+/* DISCLAIMER */
+.disclaimer-bar{background:rgba(245,200,66,.05);border:1px solid rgba(245,200,66,.12);
+  border-radius:var(--r);padding:14px 18px;margin:0 0 24px;display:flex;align-items:flex-start;gap:10px;font-size:12px;color:rgba(245,200,66,.7)}
+.disclaimer-bar p{line-height:1.5}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 0;background:var(--bg)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:11px;color:var(--t3);max-width:640px;line-height:1.5}
+.footer-links{display:flex;gap:16px}
+.footer-links a{font-size:12px;color:var(--t3);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--text)}

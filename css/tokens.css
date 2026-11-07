@@ -1,0 +1,15 @@
+/* Alpha-Seeker — design tokens + reset
+   Extracted verbatim from Alpha-Seeker.html lines 11-23. No rules changed. */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080810;--bg2:#0e0e1c;--card:#12121e;--card2:#16162a;--border:#1e1e32;--border2:#252540;
+  --text:#eeeeff;--t2:#9090b0;--t3:#45456a;
+  --prec:#00c8f0;--prec-d:rgba(0,200,240,.1);--prec-g:rgba(0,200,240,.3);
+  --mom:#ff6b35;--mom-d:rgba(255,107,53,.1);--mom-g:rgba(255,107,53,.3);
+  --green:#00d97e;--red:#ef4444;--amber:#f59e0b;--gold:#f5c842;
+  --r:10px;--rl:18px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:0 20px;position:relative;z-index:1}

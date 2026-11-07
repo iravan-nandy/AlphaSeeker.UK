@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alpha Seeker Screener | Live Long Setups & Risk Flags — AI · Space · Quantum · Energy · Defence · Tech</title>
+<meta name="description" content="Live long setups and risk flags for hot-theme stocks. Precision 21 EMA pullback entries and Momentum breakout setups from The Alpha Seeker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Stylesheets: source order is load-bearing (zero !important in this project).
+     responsive.css MUST stay last. See css/responsive.css. -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/screener.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/newsletter.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<!-- FILE:// LOCAL SERVER BANNER -->
+<div id="localBanner">
+  ⚠ <strong>Opening from file:// blocks live prices.</strong>
+  Serve it locally for full data:
+  Terminal → <code>cd ~/Downloads && python3 -m http.server 8080</code>
+  then open <code>http://localhost:8080/Alpha-Seeker.html</code>
+  <button class="lb-close" data-action="banner:dismiss">✕</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="logo" id="logoAdminTrigger">
+        <div class="logo-mark">α</div>
+        <div class="logo-text">Alpha <span>Seeker</span></div>
+        <div class="screener-badge">Heatseeker</div>
+      </div>
+      <div class="nav-right">
+        <a href="#newsletter" class="btn btn-outline btn-sm">📬 Newsletter</a>
+        <button class="btn btn-primary btn-sm" id="premiumToggleBtn" data-action="premium:toggle">Unlock Premium</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MARKET REGIME / MACRO BAR -->
+<div class="macro-bar" id="macroBar">
+  <div class="container">
+    <div class="macro-inner">
+      <div class="macro-top">
+        <div class="macro-regime"><span class="mr-label">Market Regime</span><span class="mr-badge" id="mrBadge">Reading…</span></div>
+        <div class="macro-note" id="macroNote">Reading macro conditions…</div>
+      </div>
+      <div class="macro-tiles" id="macroTiles"></div>
+    </div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="container">
+    <div class="status-inner">
+      <div class="stat-item"><span class="stat-dot"></span><span class="stat-label">Live</span><span class="stat-val" id="liveStatus">Loading…</span></div>
+      <div class="stat-item"><span class="stat-label">Precision Longs</span><span class="stat-val prec" id="precCount">—</span></div>
+      <div class="stat-item"><span class="stat-label">Momentum Longs</span><span class="stat-val mom" id="momCount">—</span></div>
+      <div class="stat-item"><span class="stat-label">Sell Alerts</span><span class="stat-val red" id="sellCount">—</span></div>
+      <div class="stat-item"><span id="dataTime">—</span> <button id="refreshBtn" data-action="data:refresh">↺ Refresh</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-inner">
+      <div class="theme-tabs" id="themeTabs">
+        <button class="theme-tab active" data-theme="all">All</button>
+        <button class="theme-tab" data-theme="AI">🤖 AI</button>
+        <button class="theme-tab" data-theme="Semis">🔲 Semis</button>
+        <button class="theme-tab" data-theme="Memory">🧠 Memory</button>
+        <button class="theme-tab" data-theme="Photonics">💡 Photonics</button>
+        <button class="theme-tab" data-theme="Space">🚀 Space</button>
+        <button class="theme-tab" data-theme="Quantum">⚛️ Quantum</button>
+        <button class="theme-tab" data-theme="Nuclear">☢️ Nuclear</button>
+        <button class="theme-tab" data-theme="Defence">🛡️ Defence</button>
+        <button class="theme-tab" data-theme="Robotics">🦾 Robotics</button>
+        <button class="theme-tab" data-theme="Biotech">🧬 Biotech</button>
+        <button class="theme-tab" data-theme="Crypto">₿ Crypto</button>
+        <button class="theme-tab" data-theme="Software">💻 Software</button>
+      </div>
+      <div class="desk-toggle" id="deskToggle">
+        <button class="desk-btn active" data-desk="both">Both Desks</button>
+        <button class="desk-btn" data-desk="precision">🎯 Precision</button>
+        <button class="desk-btn" data-desk="momentum">⚡ Iravan's</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENER GRID -->
+<section class="screener-section">
+  <div class="container">
+    <div class="scr-intro">
+      <h1 class="scr-h1"><span>Heatseeker</span> Screener</h1>
+      <p class="scr-p">The live signal engine behind The Alpha Seeker — 24 hot-theme stocks scanned in real time for 21 EMA pullback (Precision) and breakout (Momentum) setups. Free to use.</p>
+    </div>
+    <div class="disclaimer-bar">
+      <span>⚠️</span>
+      <p><strong>Educational analysis only.</strong> Not personalised financial advice. All signals are auto-generated from price/volume data. Always do your own research. Market data via EODHD &amp; Yahoo Finance. Capital at risk.</p>
+    </div>
+    <div class="section-label" id="gridLabel">Loading market data…</div>
+    <div class="screener-grid" id="screenerGrid"><!-- cards injected by JS --></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER (Alpha Seeker Weekly) -->
+<section class="nl-section" id="newsletter">
+  <div class="container">
+    <div class="nl-wrap">
+      <div class="nl-left">
+        <div class="nl-eyebrow"><span class="nl-dot"></span>The Alpha Seeker Weekly</div>
+        <h2 class="nl-title">The week's best setups, in your inbox every Monday.</h2>
+        <p class="nl-sub">The Heatseeker engine scans all 24 names every week. We email you the handful that clear our bar — the signal, the catalyst, and the levels — written in plain English. Free.</p>
+        <ul class="nl-feats">
+          <li><span>&#10003;</span> The top Precision &amp; Momentum setups of the week</li>
+          <li><span>&#10003;</span> The analysis behind each pick — why now, and the risk</li>
+          <li><span>&#10003;</span> Entry, stop &amp; target levels, not just tickers</li>
+          <li><span>&#10003;</span> A macro read on what's moving the themes</li>
+        </ul>
+        <p class="nl-foot">Free every Monday. Premium subscribers get the full analyst breakdowns, annotated charts and new-signal alerts &mdash; see pricing below.</p>
+      </div>
+      <div class="nl-card">
+        <h3>Subscribe free</h3>
+        <p>Join the list and get this week's issue.</p>
+        <form id="nlForm">
+          <label>Email address</label>
+          <input name="email" type="email" required placeholder="you@email.com">
+          <label>First name (optional)</label>
+          <input name="name" placeholder="Jordan">
+          <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;">Get the newsletter &rarr;</button>
+          <p class="nl-note">No spam &middot; unsubscribe anytime</p>
+        </form>
+        <!--
+          USING SUBSTACK / BEEHIIV? Delete the <form> above and paste your
+          provider's embed iframe here instead (Substack: Settings -> Embed;
+          beehiiv: Subscribe Forms -> Embed). Otherwise the form posts via
+          NL_ENDPOINT / mailto fallback configured in the script below.
+        -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STOCK DETAIL MODAL -->
+<div class="modal-overlay" id="stockModal" data-action="modal:backdrop">
+  <div class="modal" id="modalInner">
+    <div class="modal-head">
+      <div class="modal-head-left">
+        <div class="modal-eyebrow" id="modalEyebrow"></div>
+        <div class="modal-ticker" id="modalTicker"></div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-price-row">
+          <div class="modal-price" id="modalPrice"></div>
+          <span class="change-badge" id="modalChange"></span>
+        </div>
+      </div>
+      <button class="modal-close" data-action="modal:close">✕</button>
+    </div>
+    <div class="modal-tabs" id="modalTabs">
+      <button class="modal-tab active" data-tab="auto" data-action="modal:tab" data-tab="auto">📊 Auto Signal</button>
+      <button class="modal-tab" data-tab="precision" data-action="modal:tab" data-tab="precision">🎯 Precision Desk</button>
+      <button class="modal-tab" data-tab="momentum" data-action="modal:tab" data-tab="momentum">⚡ Iravan's Desk</button>
+      <button class="modal-tab" data-tab="tradelog" data-action="modal:tab" data-tab="tradelog">📋 Trade Log</button>
+    </div>
+    <div class="modal-body">
+      <!-- Auto Signal Tab -->
+      <div class="modal-tab-content active" id="tab-auto">
+        <div class="chart-links" id="modalChartLinks"></div>
+        <div class="chart-frame" id="modalChartFrame"></div>
+        <div class="sig-analysis-box">
+          <div class="sig-analysis-header">
+            <h4>Precision Desk — Auto Signal</h4>
+            <span class="big-signal sig-badge" id="modalPrecSignal"></span>
+          </div>
+          <div class="sig-detail" id="modalPrecDetail"></div>
+          <div class="sig-metrics" id="modalMetrics"></div>
+        </div>
+        <div class="sig-analysis-box" style="margin-top:14px;">
+          <div class="sig-analysis-header">
+            <h4>⚡ Iravan's Desk — Auto Signal</h4>
+            <span class="big-signal sig-badge" id="modalMomSignal"></span>
+          </div>
+          <div class="sig-detail" id="modalMomDetail"></div>
+        </div>
+        <div class="sig-analysis-box" id="modalLevelsBox" style="margin-top:14px;"></div>
+      </div>
+      <!-- Precision Desk Tab -->
+      <div class="modal-tab-content" id="tab-precision">
+        <div class="analyst-view premium-lock prem-unlocked" id="precAnalystView">
+          <div class="prem-blur" id="precAnalystContent">
+            <div class="analyst-commentary" id="precCommentary"></div>
+            <div class="analyst-screenshot" id="precScreenshot" style="display:none;"></div>
+          </div>
+          <div class="prem-overlay">
+            <h4>🔒 Premium Analysis</h4>
+            <p>Sai's full setup breakdown, annotated chart and entry/exit thesis</p>
+            <button class="btn btn-primary btn-sm" data-action="premium:toggle">Unlock for £2.99/mo →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Iravan's Desk Tab -->
+      <div class="modal-tab-content" id="tab-momentum">
+        <div class="analyst-view premium-lock prem-unlocked" id="momAnalystView">
+          <div class="prem-blur" id="momAnalystContent">
+            <div class="analyst-commentary" id="momCommentary"></div>
+            <div class="analyst-screenshot" id="momScreenshot" style="display:none;"></div>
+          </div>
+          <div class="prem-overlay">
+            <h4>🔒 Premium Analysis</h4>
+            <p>Iravan's full view — high-volatility DCA thesis, targets and risk</p>
+            <button class="btn btn-primary btn-sm" data-action="premium:toggle">Unlock for £2.99/mo →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Trade Log Tab -->
+      <div class="modal-tab-content" id="tab-tradelog">
+        <div class="analyst-view premium-lock prem-unlocked" id="tradeLogView">
+          <div class="prem-blur" id="tradeLogContent">
+            <!-- Injected by renderTradeLog() -->
+          </div>
+          <div class="prem-overlay">
+            <h4>🔒 Trade Log — Premium</h4>
+            <p>Sai's exact entries, exits, stop levels and chart screenshots — every trade, timestamped.</p>
+            <button class="btn btn-primary btn-sm" data-action="premium:toggle">Unlock for £2.99/mo →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite"></span>
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3)">Pricing</span>
+      </div>
+      <h2>Start free. Upgrade for the edge.</h2>
+      <p>We're building our track record alongside you. The price stays this low while we're starting out.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Free</div>
+        <div class="pricing-amount">£0</div>
+        <div class="pricing-period">forever free</div>
+        <ul class="pricing-features">
+          <li><span class="feat-check">✓</span> All 84 stocks across 12 themes</li>
+          <li><span class="feat-check">✓</span> Auto-generated long-setup & risk signals</li>
+          <li><span class="feat-check">✓</span> 21 EMA + volume analysis</li>
+          <li><span class="feat-check">✓</span> Theme & desk filtering</li>
+          <li><span class="feat-x">—</span> <span style="color:var(--t3)">Analyst commentary</span></li>
+          <li><span class="feat-x">—</span> <span style="color:var(--t3)">Annotated chart screenshots</span></li>
+          <li><span class="feat-x">—</span> <span style="color:var(--t3)">Entry / exit thesis</span></li>
+        </ul>
+        <button class="btn btn-outline" style="width:100%;justify-content:center;" data-action="grid:scroll">Use Free Screener</button>
+      </div>
+      <div class="pricing-card featured">
+        <div class="early-bird">Early Bird</div>
+        <div class="pricing-tier">Alpha Access</div>
+        <div class="pricing-amount"><sup>£</sup>2.99</div>
+        <div class="pricing-period">per month · or £19.99/year · locks in forever</div>
+        <ul class="pricing-features">
+          <li><span class="feat-check">✓</span> Everything in Free</li>
+          <li><span class="feat-check">✓</span> Sai's Precision Desk analysis</li>
+          <li><span class="feat-check">✓</span> Iravan's Desk — high-vol DCA thesis</li>
+          <li><span class="feat-check">✓</span> Annotated chart screenshots</li>
+          <li><span class="feat-check">✓</span> Weekly signal digest email</li>
+          <li><span class="feat-check">✓</span> Private Discord community</li>
+          <li><span class="feat-check">✓</span> New signal alerts</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" data-action="premium:toggle">Preview Premium (Demo) →</button>
+      </div>
+    </div>
+    <div class="pricing-note">
+      <strong>🔒 Early Bird pricing locks in at £2.99/mo forever.</strong> Price increases to £9.99/mo after our first 200 subscribers. LSE-backed. Built in public. Transparent track record.
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="admin-overlay" id="adminOverlay">
+  <div id="adminInner">
+    <!-- either login or panel, set by JS -->
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <div>
+        <p><strong>Disclaimer:</strong> The Alpha Seeker Screener provides automated educational analysis only. Signals are algorithmically generated and do not constitute personalised financial advice. Not FCA-authorised. Always conduct your own research. Capital is at risk.</p>
+        <p style="margin-top:8px;">
+          Charts powered by <a href="https://www.tradingview.com" target="_blank" rel="noopener" style="color:var(--t2);text-decoration:none;">TradingView</a> ·
+          Market data via <a href="https://finance.yahoo.com" target="_blank" rel="noopener" style="color:var(--t2);text-decoration:none;">Yahoo Finance</a> ·
+          Additional analysis at <a href="https://www.investing.com" target="_blank" rel="noopener" style="color:var(--t2);text-decoration:none;">Investing.com</a> ·
+          © The Alpha Seeker 2026
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#newsletter">Newsletter</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#" data-action="admin:show">Admin</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script type="module" src="js/app/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Architecture guardrails
+        run: node test/arch.mjs
+      - name: Statistics regression lock
+        # Rebuilds the baseline from the frozen monolith, then asserts the
+        # modules reproduce it bit for bit.
+        run: |
+          node test/extract-legacy.mjs
+          node test/golden.mjs
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Data scripts compile
+        run: python3 -m py_compile scripts/*.py

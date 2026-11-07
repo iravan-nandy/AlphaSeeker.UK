@@ -1,0 +1,112 @@
+/* Alpha-Seeker — sector accents, card TA row, key levels, macro bar, trade log
+   Extracted verbatim from Alpha-Seeker.html lines 358-468. No rules changed. */
+
+/* ===== Extended theme colours ===== */
+.theme-tab[data-theme="Semis"].active{color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.1)}
+.theme-tab[data-theme="Memory"].active{color:#fbbf24;border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.1)}
+.theme-tab[data-theme="Photonics"].active{color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.1)}
+.theme-tab[data-theme="Nuclear"].active{color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(34,197,94,.1)}
+.theme-tab[data-theme="Robotics"].active{color:#fb923c;border-color:rgba(251,146,60,.3);background:rgba(251,146,60,.1)}
+.theme-tab[data-theme="Biotech"].active{color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.1)}
+.theme-tab[data-theme="Crypto"].active{color:#f5c842;border-color:rgba(245,200,66,.3);background:rgba(245,200,66,.1)}
+.theme-tab[data-theme="Software"].active{color:#818cf8;border-color:rgba(129,140,248,.3);background:rgba(99,102,241,.1)}
+.tb-Semis{background:rgba(45,212,191,.15);color:#2dd4bf;border:1px solid rgba(45,212,191,.25)}
+.tb-Memory{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.25)}
+.tb-Photonics{background:rgba(244,114,182,.15);color:#f472b6;border:1px solid rgba(244,114,182,.25)}
+.tb-Nuclear{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.tb-Robotics{background:rgba(251,146,60,.15);color:#fb923c;border:1px solid rgba(251,146,60,.25)}
+.tb-Biotech{background:rgba(52,211,153,.15);color:#34d399;border:1px solid rgba(52,211,153,.25)}
+.tb-Crypto{background:rgba(245,200,66,.15);color:#f5c842;border:1px solid rgba(245,200,66,.25)}
+.tb-Software{background:rgba(99,102,241,.15);color:#818cf8;border:1px solid rgba(99,102,241,.25)}
+/* ===== Card TA row ===== */
+.card-ta-row{margin-top:6px;padding-top:8px;border-top:1px dashed var(--border)}
+.div-tag{padding:1px 6px;border-radius:4px;font-size:10px;font-weight:700}
+.div-tag.bullish{background:rgba(0,217,126,.14);color:var(--green)}
+.div-tag.bearish{background:rgba(239,68,68,.14);color:var(--red)}
+/* ===== Modal key levels ===== */
+.lvl-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px}
+.lvl-row:last-of-type{border-bottom:none}
+.lvl-k{color:var(--t3);text-transform:uppercase;font-size:11px;letter-spacing:.06em;min-width:84px}
+.lvl-v{text-align:right;color:var(--t2)}
+.lvl-flip{font-size:10px;color:var(--prec);background:var(--prec-d);padding:1px 5px;border-radius:3px;border:1px solid rgba(0,200,240,.25)}
+.lvl-t{font-size:10px;color:var(--t3)}
+.lvl-div{margin-top:13px;font-size:13px;line-height:1.55;padding:11px 13px;border-radius:8px}
+.lvl-div.bullish{background:rgba(0,217,126,.08);color:#7ee2b8;border:1px solid rgba(0,217,126,.2)}
+.lvl-div.bearish{background:rgba(239,68,68,.08);color:#f6a3a3;border:1px solid rgba(239,68,68,.2)}
+.lvl-div.none{background:var(--bg2);color:var(--t3);border:1px solid var(--border)}
+/* ===== Macro bar ===== */
+.macro-bar{margin-top:60px;background:linear-gradient(180deg,#0b0b1a,#080810);border-bottom:1px solid var(--border)}
+/* margin-top:60px removed from the base rule in components.css; this rule
+   previously won by source order alone. Kept for provenance. */
+.status-bar{margin-top:0}
+.macro-inner{display:flex;flex-direction:column;gap:8px;padding:11px 0}
+.macro-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.macro-tiles{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.mtile{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:8px 10px}
+.mtile .t-k{font-size:9px;text-transform:uppercase;letter-spacing:.04em;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mtile .t-p{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;margin:2px 0 0}
+.mtile .t-c{font-size:11px;font-weight:600}
+.mtile .t-tr{font-size:9px;color:var(--t3);margin-top:1px}
+.macro-regime{display:flex;align-items:center;gap:10px}
+.mr-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--t3)}
+.mr-badge{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;padding:4px 12px;border-radius:6px;border:1px solid var(--border2);background:var(--bg2)}
+.mr-on{background:rgba(0,217,126,.12);color:var(--green);border-color:rgba(0,217,126,.3)}
+.mr-off{background:rgba(239,68,68,.12);color:var(--red);border-color:rgba(239,68,68,.3)}
+.mr-neutral{background:rgba(245,158,11,.1);color:var(--amber);border-color:rgba(245,158,11,.25)}
+.macro-gauges{display:flex;gap:16px;flex-wrap:wrap}
+.mg{display:flex;flex-direction:column;gap:1px}
+.mg-k{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--t3)}
+.mg-v{font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif}
+.macro-note{font-size:12px;color:var(--t2);margin-left:auto;max-width:440px;line-height:1.45}
+
+/* ===== TRADE LOG ===== */
+.tl-timeline{display:flex;flex-direction:column;gap:16px}
+.tl-entry{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.tl-entry-head{display:flex;align-items:center;gap:10px;padding:14px 16px 10px;flex-wrap:wrap}
+.tl-action{padding:4px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.tl-action.BUY{background:rgba(0,217,126,.15);color:var(--green);border:1px solid rgba(0,217,126,.3)}
+.tl-action.ADD{background:rgba(0,200,240,.15);color:var(--prec);border:1px solid rgba(0,200,240,.3)}
+.tl-action.EXIT{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.tl-action.WATCH{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.tl-date{font-size:12px;color:var(--t3);font-weight:600}
+.tl-pattern{font-size:12px;color:var(--text);font-weight:600;margin-left:auto}
+.tl-body{padding:0 16px 14px}
+.tl-prices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.tl-price-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
+.tl-price-label{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--t3);margin-bottom:4px}
+.tl-price-val{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700}
+.tl-price-val.green{color:var(--green)}
+.tl-price-val.red{color:var(--red)}
+.tl-price-val.prec{color:var(--prec)}
+.tl-notes{font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:12px;padding:10px 12px;
+  background:var(--card);border-radius:8px;border:1px solid var(--border)}
+.tl-screenshot{width:100%;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.tl-screenshot img{width:100%;display:block}
+.tl-empty{text-align:center;padding:40px 20px;color:var(--t3);font-size:14px;
+  background:var(--bg2);border:1px dashed var(--border);border-radius:10px}
+.tl-divider{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--t3);margin:6px 0}
+.tl-divider::before,.tl-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* Trade log admin */
+.tl-admin-entries{display:flex;flex-direction:column;gap:20px;margin-bottom:16px}
+.tl-admin-entry{background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:16px;position:relative}
+.tl-admin-entry-head{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.tl-entry-num{font-size:11px;color:var(--t3);font-weight:700}
+.tl-delete-btn{margin-left:auto;background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);
+  border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit}
+.tl-delete-btn:hover{background:rgba(239,68,68,.2)}
+.tl-admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tl-add-btn{width:100%;padding:11px;border:1px dashed var(--border2);border-radius:9px;
+  background:transparent;color:var(--prec);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:all .2s}
+.tl-add-btn:hover{background:var(--prec-d)}
+/* ── FILE:// LOCAL SERVER BANNER ── */
+#localBanner{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  background:#1a1008;border-top:2px solid var(--amber);padding:12px 20px;
+  font-size:13px;color:#e8c87a;text-align:center;line-height:1.7}
+#localBanner code{background:rgba(255,255,255,.08);padding:2px 8px;border-radius:4px;
+  font-family:monospace;font-size:12px;color:#fff}
+#localBanner .lb-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:#e8c87a;cursor:pointer;font-size:18px;opacity:.7}
+#localBanner .lb-close:hover{opacity:1}
+</style>

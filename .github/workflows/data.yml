@@ -1,0 +1,109 @@
+# Builds the market-data snapshot and deploys the site to GitHub Pages.
+#
+# The site is static and has no backend, so price data has to be produced ahead
+# of time: no free market-data API allows direct browser calls at this scale
+# (EODHD and Yahoo send no CORS header at all; the public proxies the original
+# used are dead). Fetching here keeps the API key server-side and turns what
+# was up to 13 requests per ticker into one same-origin GET.
+#
+# Publishes as a Pages ARTIFACT rather than committing data/: ~700 KB of float
+# JSON rewritten every weekday would add roughly 100 MB/year of permanent git
+# history that never shrinks.
+name: data
+
+on:
+  schedule:
+    # 22:30 UTC Mon-Fri = 18:30 ET in summer, 17:30 ET in winter -- after the
+    # 16:00 close and after the vendor settles, with the UTC calendar day still
+    # matching the US session for all five.
+    - cron: '30 22 * * 1-5'
+    # Catch-up: GitHub's scheduled dispatch is routinely delayed and sometimes
+    # skipped entirely. This re-runs next morning; a full refetch is idempotent.
+    - cron: '30 10 * * 2-6'
+  # A new or edited portfolio issue should get data in minutes, not next night.
+  issues:
+    types: [opened, edited, labeled, unlabeled, closed, reopened]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let a manual run race the cron into a half-written artifact.
+concurrency:
+  group: data
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Ignore issue events that cannot be about a portfolio.
+    if: >-
+      github.event_name != 'issues' ||
+      contains(join(github.event.issue.labels.*.name, ','), 'portfolio')
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+
+      - name: Resolve symbol list (universe.json + portfolio issues)
+        id: syms
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: echo "list=$(python3 scripts/resolve_symbols.py)" >> "$GITHUB_OUTPUT"
+
+      - name: Build snapshot
+        env:
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY }}
+        run: python3 scripts/fetch_prices.py --symbols "${{ steps.syms.outputs.list }}"
+
+      - name: Stage the published site
+        # Only what the browser needs. Uploading the repo root would ship .git,
+        # the frozen legacy monolith, tests and scripts into the artifact.
+        run: |
+          mkdir -p _site
+          cp -r index.html .nojekyll css js _site/
+          mkdir -p _site/data
+          cp data/universe.json data/snapshot.json data/meta.json _site/data/
+          du -sh _site
+          echo "snapshot: $(gzip -9 -c _site/data/snapshot.json | wc -c) bytes gzipped"
+
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  report-failure:
+    needs: [build, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions: { issues: write }
+    steps:
+      - name: Open or update a tracking issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # The build refuses to publish a partial snapshot, so on failure the
+          # previous artifact stays live and the site keeps working -- but that
+          # also means nobody notices unless we say something.
+          existing=$(gh issue list --label data-outage --state open --json number --jq '.[0].number')
+          body="The data workflow failed. The previously published snapshot is still live, so the site is serving the last good data and will go stale. Run: $RUN"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "Data workflow failing" --label data-outage --body "$body"
+          fi

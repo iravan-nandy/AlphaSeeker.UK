@@ -1,0 +1,630 @@
+{
+  "schema": 1,
+  "name": "Default — Alpha Seeker themes",
+  "description": "Extracted verbatim from Alpha-Seeker.html lines 816-913. Add tickers by editing this file; the data workflow picks them up on its next run.",
+  "themeOrder": [
+    "AI",
+    "Semis",
+    "Memory",
+    "Photonics",
+    "Space",
+    "Quantum",
+    "Nuclear",
+    "Defence",
+    "Robotics",
+    "Biotech",
+    "Crypto",
+    "Software"
+  ],
+  "symbols": [
+    {
+      "sym": "NVDA",
+      "name": "NVIDIA Corporation",
+      "theme": "AI",
+      "ex": "NASDAQ",
+      "desc": "AI GPUs & accelerators",
+      "ic": "nvidia-corp"
+    },
+    {
+      "sym": "PLTR",
+      "name": "Palantir Technologies",
+      "theme": "AI",
+      "ex": "NASDAQ",
+      "desc": "AI data analytics",
+      "ic": "palantir-technologies"
+    },
+    {
+      "sym": "AMD",
+      "name": "Advanced Micro Devices",
+      "theme": "AI",
+      "ex": "NASDAQ",
+      "desc": "AI/ML processors",
+      "ic": "adv-micro-dev"
+    },
+    {
+      "sym": "SOUN",
+      "name": "SoundHound AI",
+      "theme": "AI",
+      "ex": "NASDAQ",
+      "desc": "Conversational voice AI",
+      "ic": "soundhound-ai-inc"
+    },
+    {
+      "sym": "AI",
+      "name": "C3.ai Inc",
+      "theme": "AI",
+      "ex": "NYSE",
+      "desc": "Enterprise AI applications"
+    },
+    {
+      "sym": "BBAI",
+      "name": "BigBear.ai Holdings",
+      "theme": "AI",
+      "ex": "NYSE",
+      "desc": "AI for defence & intel"
+    },
+    {
+      "sym": "APP",
+      "name": "AppLovin Corporation",
+      "theme": "AI",
+      "ex": "NASDAQ",
+      "desc": "AI advertising engine"
+    },
+    {
+      "sym": "AVGO",
+      "name": "Broadcom Inc",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "AI networking & custom silicon"
+    },
+    {
+      "sym": "TSM",
+      "name": "Taiwan Semiconductor",
+      "theme": "Semis",
+      "ex": "NYSE",
+      "desc": "Leading-edge foundry"
+    },
+    {
+      "sym": "ARM",
+      "name": "Arm Holdings",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "CPU IP & architectures"
+    },
+    {
+      "sym": "MRVL",
+      "name": "Marvell Technology",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "Custom AI silicon & optics"
+    },
+    {
+      "sym": "QCOM",
+      "name": "Qualcomm Inc",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "Mobile & edge AI chips"
+    },
+    {
+      "sym": "ON",
+      "name": "ON Semiconductor",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "Power & analog chips"
+    },
+    {
+      "sym": "MPWR",
+      "name": "Monolithic Power",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "Power management ICs"
+    },
+    {
+      "sym": "ASML",
+      "name": "ASML Holding",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "EUV lithography systems"
+    },
+    {
+      "sym": "AMAT",
+      "name": "Applied Materials",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "Wafer-fab equipment"
+    },
+    {
+      "sym": "LRCX",
+      "name": "Lam Research",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "Etch & deposition tools"
+    },
+    {
+      "sym": "KLAC",
+      "name": "KLA Corporation",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "Process control & inspection"
+    },
+    {
+      "sym": "SMCI",
+      "name": "Super Micro Computer",
+      "theme": "Semis",
+      "ex": "NASDAQ",
+      "desc": "AI server systems"
+    },
+    {
+      "sym": "MU",
+      "name": "Micron Technology",
+      "theme": "Memory",
+      "ex": "NASDAQ",
+      "desc": "DRAM & HBM memory"
+    },
+    {
+      "sym": "WDC",
+      "name": "Western Digital",
+      "theme": "Memory",
+      "ex": "NASDAQ",
+      "desc": "NAND flash & storage"
+    },
+    {
+      "sym": "STX",
+      "name": "Seagate Technology",
+      "theme": "Memory",
+      "ex": "NASDAQ",
+      "desc": "Hard drives & storage"
+    },
+    {
+      "sym": "SIMO",
+      "name": "Silicon Motion",
+      "theme": "Memory",
+      "ex": "NASDAQ",
+      "desc": "NAND flash controllers"
+    },
+    {
+      "sym": "NLST",
+      "name": "Netlist Inc",
+      "theme": "Memory",
+      "ex": "NASDAQ",
+      "desc": "Memory module IP"
+    },
+    {
+      "sym": "COHR",
+      "name": "Coherent Corp",
+      "theme": "Photonics",
+      "ex": "NYSE",
+      "desc": "Lasers & optical comms"
+    },
+    {
+      "sym": "LITE",
+      "name": "Lumentum Holdings",
+      "theme": "Photonics",
+      "ex": "NASDAQ",
+      "desc": "Optical transceivers"
+    },
+    {
+      "sym": "AAOI",
+      "name": "Applied Optoelectronics",
+      "theme": "Photonics",
+      "ex": "NASDAQ",
+      "desc": "Datacentre optics"
+    },
+    {
+      "sym": "POET",
+      "name": "POET Technologies",
+      "theme": "Photonics",
+      "ex": "NASDAQ",
+      "desc": "Optical interposer platform"
+    },
+    {
+      "sym": "CRDO",
+      "name": "Credo Technology",
+      "theme": "Photonics",
+      "ex": "NASDAQ",
+      "desc": "Connectivity & optical DSPs"
+    },
+    {
+      "sym": "ALAB",
+      "name": "Astera Labs",
+      "theme": "Photonics",
+      "ex": "NASDAQ",
+      "desc": "AI connectivity silicon"
+    },
+    {
+      "sym": "FN",
+      "name": "Fabrinet",
+      "theme": "Photonics",
+      "ex": "NYSE",
+      "desc": "Optical & photonic manufacturing"
+    },
+    {
+      "sym": "GLW",
+      "name": "Corning Inc",
+      "theme": "Photonics",
+      "ex": "NYSE",
+      "desc": "Optical fibre & glass"
+    },
+    {
+      "sym": "RKLB",
+      "name": "Rocket Lab USA",
+      "theme": "Space",
+      "ex": "NASDAQ",
+      "desc": "Small-sat launch & spacecraft",
+      "ic": "rocket-lab-usa"
+    },
+    {
+      "sym": "ASTS",
+      "name": "AST SpaceMobile",
+      "theme": "Space",
+      "ex": "NASDAQ",
+      "desc": "Space-based broadband",
+      "ic": "ast-spacemobile-inc"
+    },
+    {
+      "sym": "LUNR",
+      "name": "Intuitive Machines",
+      "theme": "Space",
+      "ex": "NASDAQ",
+      "desc": "Lunar landers & services"
+    },
+    {
+      "sym": "RDW",
+      "name": "Redwire Corp",
+      "theme": "Space",
+      "ex": "NYSE",
+      "desc": "Space infrastructure"
+    },
+    {
+      "sym": "BKSY",
+      "name": "BlackSky Technology",
+      "theme": "Space",
+      "ex": "NYSE",
+      "desc": "Geospatial imaging"
+    },
+    {
+      "sym": "IRDM",
+      "name": "Iridium Communications",
+      "theme": "Space",
+      "ex": "NASDAQ",
+      "desc": "Satellite communications"
+    },
+    {
+      "sym": "IONQ",
+      "name": "IonQ Inc",
+      "theme": "Quantum",
+      "ex": "NYSE",
+      "desc": "Trapped-ion quantum",
+      "ic": "ionq-inc"
+    },
+    {
+      "sym": "RGTI",
+      "name": "Rigetti Computing",
+      "theme": "Quantum",
+      "ex": "NASDAQ",
+      "desc": "Superconducting qubits",
+      "ic": "rigetti-computing"
+    },
+    {
+      "sym": "QBTS",
+      "name": "D-Wave Quantum",
+      "theme": "Quantum",
+      "ex": "NYSE",
+      "desc": "Quantum annealing"
+    },
+    {
+      "sym": "QUBT",
+      "name": "Quantum Computing Inc",
+      "theme": "Quantum",
+      "ex": "NASDAQ",
+      "desc": "Quantum hardware & software",
+      "ic": "quantum-computing-inc"
+    },
+    {
+      "sym": "LAES",
+      "name": "SEALSQ Corp",
+      "theme": "Quantum",
+      "ex": "NASDAQ",
+      "desc": "Post-quantum security chips"
+    },
+    {
+      "sym": "OKLO",
+      "name": "Oklo Inc",
+      "theme": "Nuclear",
+      "ex": "NYSE",
+      "desc": "Micro fission reactors",
+      "ic": "oklo-inc"
+    },
+    {
+      "sym": "SMR",
+      "name": "NuScale Power",
+      "theme": "Nuclear",
+      "ex": "NYSE",
+      "desc": "Small modular reactors"
+    },
+    {
+      "sym": "NNE",
+      "name": "Nano Nuclear Energy",
+      "theme": "Nuclear",
+      "ex": "NASDAQ",
+      "desc": "Portable microreactors"
+    },
+    {
+      "sym": "CEG",
+      "name": "Constellation Energy",
+      "theme": "Nuclear",
+      "ex": "NASDAQ",
+      "desc": "Nuclear power generation",
+      "ic": "constellation-energy-corp"
+    },
+    {
+      "sym": "VST",
+      "name": "Vistra Corp",
+      "theme": "Nuclear",
+      "ex": "NYSE",
+      "desc": "Power generation & retail"
+    },
+    {
+      "sym": "CCJ",
+      "name": "Cameco Corporation",
+      "theme": "Nuclear",
+      "ex": "NYSE",
+      "desc": "Uranium mining & fuel",
+      "ic": "cameco-corp"
+    },
+    {
+      "sym": "BWXT",
+      "name": "BWX Technologies",
+      "theme": "Nuclear",
+      "ex": "NYSE",
+      "desc": "Nuclear components & fuel"
+    },
+    {
+      "sym": "LMT",
+      "name": "Lockheed Martin",
+      "theme": "Defence",
+      "ex": "NYSE",
+      "desc": "Aerospace & defence prime",
+      "ic": "lockheed-martin"
+    },
+    {
+      "sym": "NOC",
+      "name": "Northrop Grumman",
+      "theme": "Defence",
+      "ex": "NYSE",
+      "desc": "Stealth & space systems",
+      "ic": "northrop-grumman"
+    },
+    {
+      "sym": "RTX",
+      "name": "RTX Corporation",
+      "theme": "Defence",
+      "ex": "NYSE",
+      "desc": "Missiles & aerospace"
+    },
+    {
+      "sym": "GD",
+      "name": "General Dynamics",
+      "theme": "Defence",
+      "ex": "NYSE",
+      "desc": "Combat systems & marine"
+    },
+    {
+      "sym": "AXON",
+      "name": "Axon Enterprise",
+      "theme": "Defence",
+      "ex": "NASDAQ",
+      "desc": "Connected law enforcement",
+      "ic": "axon-enterprise"
+    },
+    {
+      "sym": "KTOS",
+      "name": "Kratos Defense",
+      "theme": "Defence",
+      "ex": "NASDAQ",
+      "desc": "Drones & tactical systems"
+    },
+    {
+      "sym": "AVAV",
+      "name": "AeroVironment",
+      "theme": "Defence",
+      "ex": "NASDAQ",
+      "desc": "Unmanned aircraft"
+    },
+    {
+      "sym": "ISRG",
+      "name": "Intuitive Surgical",
+      "theme": "Robotics",
+      "ex": "NASDAQ",
+      "desc": "Surgical robotics"
+    },
+    {
+      "sym": "TER",
+      "name": "Teradyne Inc",
+      "theme": "Robotics",
+      "ex": "NASDAQ",
+      "desc": "Test & industrial automation"
+    },
+    {
+      "sym": "SERV",
+      "name": "Serve Robotics",
+      "theme": "Robotics",
+      "ex": "NASDAQ",
+      "desc": "Autonomous delivery robots"
+    },
+    {
+      "sym": "PATH",
+      "name": "UiPath Inc",
+      "theme": "Robotics",
+      "ex": "NYSE",
+      "desc": "Robotic process automation"
+    },
+    {
+      "sym": "RCAT",
+      "name": "Red Cat Holdings",
+      "theme": "Robotics",
+      "ex": "NASDAQ",
+      "desc": "Drone systems"
+    },
+    {
+      "sym": "VKTX",
+      "name": "Viking Therapeutics",
+      "theme": "Biotech",
+      "ex": "NASDAQ",
+      "desc": "Obesity & metabolic drugs"
+    },
+    {
+      "sym": "RXRX",
+      "name": "Recursion Pharma",
+      "theme": "Biotech",
+      "ex": "NASDAQ",
+      "desc": "AI drug discovery"
+    },
+    {
+      "sym": "CRSP",
+      "name": "CRISPR Therapeutics",
+      "theme": "Biotech",
+      "ex": "NASDAQ",
+      "desc": "CRISPR gene editing"
+    },
+    {
+      "sym": "NTLA",
+      "name": "Intellia Therapeutics",
+      "theme": "Biotech",
+      "ex": "NASDAQ",
+      "desc": "In-vivo gene editing"
+    },
+    {
+      "sym": "BEAM",
+      "name": "Beam Therapeutics",
+      "theme": "Biotech",
+      "ex": "NASDAQ",
+      "desc": "Base editing therapies"
+    },
+    {
+      "sym": "ARWR",
+      "name": "Arrowhead Pharma",
+      "theme": "Biotech",
+      "ex": "NASDAQ",
+      "desc": "RNAi therapeutics"
+    },
+    {
+      "sym": "HIMS",
+      "name": "Hims & Hers Health",
+      "theme": "Biotech",
+      "ex": "NYSE",
+      "desc": "Telehealth & compounded meds"
+    },
+    {
+      "sym": "COIN",
+      "name": "Coinbase Global",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Crypto exchange"
+    },
+    {
+      "sym": "MSTR",
+      "name": "Strategy (MicroStrategy)",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Bitcoin treasury & analytics",
+      "ic": "microstrategy"
+    },
+    {
+      "sym": "MARA",
+      "name": "MARA Holdings",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Bitcoin mining"
+    },
+    {
+      "sym": "RIOT",
+      "name": "Riot Platforms",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Bitcoin mining & hosting"
+    },
+    {
+      "sym": "CLSK",
+      "name": "CleanSpark Inc",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Bitcoin mining"
+    },
+    {
+      "sym": "WULF",
+      "name": "TeraWulf Inc",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Bitcoin mining & HPC"
+    },
+    {
+      "sym": "IREN",
+      "name": "IREN Limited",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Bitcoin mining & AI cloud"
+    },
+    {
+      "sym": "CIFR",
+      "name": "Cipher Mining",
+      "theme": "Crypto",
+      "ex": "NASDAQ",
+      "desc": "Bitcoin mining"
+    },
+    {
+      "sym": "CRWD",
+      "name": "CrowdStrike Holdings",
+      "theme": "Software",
+      "ex": "NASDAQ",
+      "desc": "AI-native cybersecurity",
+      "ic": "crowdstrike-holdings"
+    },
+    {
+      "sym": "NET",
+      "name": "Cloudflare Inc",
+      "theme": "Software",
+      "ex": "NYSE",
+      "desc": "Cloud network platform",
+      "ic": "cloudflare-inc"
+    },
+    {
+      "sym": "SNOW",
+      "name": "Snowflake Inc",
+      "theme": "Software",
+      "ex": "NYSE",
+      "desc": "Data cloud & AI",
+      "ic": "snowflake-inc"
+    },
+    {
+      "sym": "DDOG",
+      "name": "Datadog Inc",
+      "theme": "Software",
+      "ex": "NASDAQ",
+      "desc": "Cloud observability",
+      "ic": "datadog-inc"
+    },
+    {
+      "sym": "ZS",
+      "name": "Zscaler Inc",
+      "theme": "Software",
+      "ex": "NASDAQ",
+      "desc": "Zero-trust security",
+      "ic": "zscaler"
+    },
+    {
+      "sym": "PANW",
+      "name": "Palo Alto Networks",
+      "theme": "Software",
+      "ex": "NASDAQ",
+      "desc": "Enterprise security platform"
+    },
+    {
+      "sym": "MDB",
+      "name": "MongoDB Inc",
+      "theme": "Software",
+      "ex": "NASDAQ",
+      "desc": "Developer data platform"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+/* Alpha-Seeker — nav, status bar, filter bar
+   Extracted verbatim from Alpha-Seeker.html lines 24-92. No rules changed. */
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 0;
+  background:rgba(8,8,16,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.04);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--text);cursor:pointer}
+.logo-mark{width:32px;height:32px;border-radius:7px;
+  background:linear-gradient(135deg,var(--prec),var(--mom));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;color:#050510;font-family:'Space Grotesk',sans-serif;
+  transition:transform .2s}
+.logo:hover .logo-mark{transform:scale(1.05)}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px}
+.logo-text span{color:var(--prec)}
+.screener-badge{padding:3px 9px;border-radius:4px;font-size:11px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:var(--prec-d);color:var(--prec);border:1px solid rgba(0,200,240,.2)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:var(--r);
+  font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;border:none;font-family:inherit}
+.btn-outline{background:transparent;color:var(--t2);border:1px solid var(--border2)}
+.btn-outline:hover{color:var(--text);border-color:var(--prec)}
+.btn-primary{background:var(--prec);color:#050510;box-shadow:0 0 20px var(--prec-g)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 32px var(--prec-g)}
+.btn-sm{padding:7px 14px;font-size:12px}
+.btn-mom{background:var(--mom);color:#050510;box-shadow:0 0 20px var(--mom-g)}
+.btn-mom:hover{transform:translateY(-1px)}
+
+/* STATUS BAR */
+.status-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 0}
+.status-inner{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+.stat-item{display:flex;align-items:center;gap:8px;padding:6px 20px;
+  border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none;margin-left:auto}
+.stat-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.stat-label{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em}
+.stat-val{font-size:13px;font-weight:700;color:var(--text)}
+.stat-val.prec{color:var(--prec)}
+.stat-val.mom{color:var(--mom)}
+.stat-val.red{color:var(--red)}
+#dataTime{font-size:11px;color:var(--t3)}
+#refreshBtn{font-size:11px;color:var(--prec);background:none;border:none;cursor:pointer;padding:0;font-family:inherit;transition:opacity .2s}
+#refreshBtn:hover{opacity:.7}
+
+/* FILTER BAR */
+.filter-bar{background:var(--card);border-bottom:1px solid var(--border);padding:0;position:sticky;top:60px;z-index:100}
+.filter-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 0}
+.theme-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.theme-tab{padding:7px 14px;border-radius:8px;font-size:13px;font-weight:500;
+  cursor:pointer;background:transparent;border:1px solid transparent;
+  color:var(--t2);transition:all .15s;font-family:inherit}
+.theme-tab:hover{color:var(--text);background:var(--bg2)}
+.theme-tab.active{background:var(--bg2);color:var(--text);border-color:var(--border2)}
+.theme-tab[data-theme="AI"].active{color:#a78bfa;border-color:rgba(167,139,250,.3);background:rgba(139,92,246,.1)}
+.theme-tab[data-theme="Space"].active{color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(59,130,246,.1)}
+.theme-tab[data-theme="Quantum"].active{color:#22d3ee;border-color:rgba(34,211,238,.3);background:rgba(6,182,212,.1)}
+.theme-tab[data-theme="Energy"].active{color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(34,197,94,.1)}
+.theme-tab[data-theme="Defence"].active{color:#cbd5e1;border-color:rgba(203,213,225,.3);background:rgba(148,163,184,.1)}
+.theme-tab[data-theme="Tech"].active{color:#818cf8;border-color:rgba(129,140,248,.3);background:rgba(99,102,241,.1)}
+.desk-toggle{display:flex;gap:4px;flex-shrink:0}
+.desk-btn{padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;
+  cursor:pointer;background:transparent;border:1px solid var(--border);
+  color:var(--t2);transition:all .15s;font-family:inherit}
+.desk-btn:hover{color:var(--text)}
+.desk-btn.active[data-desk="both"]{background:var(--bg2);color:var(--text);border-color:var(--border2)}
+.desk-btn.active[data-desk="precision"]{background:var(--prec-d);color:var(--prec);border-color:rgba(0,200,240,.3)}
+.desk-btn.active[data-desk="momentum"]{background:var(--mom-d);color:var(--mom);border-color:rgba(255,107,53,.3)}
