@@ -54,7 +54,7 @@ var meta=sg.meta||{}, tl=ta.trendlines, trendRows='';
   else if(meta.ema50!=null){ trendRows += '<div class="lvl-row"><span class="lvl-k">Trend</span><span class="lvl-v">'+(meta.pct50>=0?'+':'')+meta.pct50.toFixed(1)+'% vs 50 MA &middot; '+(meta.trend||'')+'</span></div>'; }
   if(tl){ var tp=[]; if(tl.support) tp.push(tl.support.slope+' support ~<b style="color:var(--green)">'+fmtPrice(tl.support.value,cur)+'</b>'); if(tl.resistance) tp.push(tl.resistance.slope+' resistance ~<b style="color:var(--red)">'+fmtPrice(tl.resistance.value,cur)+'</b>'); if(tp.length) trendRows += '<div class="lvl-row"><span class="lvl-k">Trendlines</span><span class="lvl-v">'+tp.join('<br>')+'</span></div>'; }
   var trendHTML = trendRows + ((meta.reclaim&&meta.reclaim.bull)?'<div class="lvl-div bullish">🟢 '+meta.reclaim.text+' Watch for continuation above the reclaimed level.</div>':'');
-  box.innerHTML='<div class="sig-analysis-header"><h4>🔥 Heatseeker — Key Levels &amp; Momentum</h4>'+
+  box.innerHTML='<div class="sig-analysis-header"><h4>🔥 Alphaseeker — Key Levels &amp; Momentum</h4>'+
     (rsi!=null?'<span class="big-signal" style="background:var(--bg2);color:'+rc+';border:1px solid var(--border)">RSI '+rsi.toFixed(0)+' · '+zone+'</span>':'')+'</div>'+
     trendHTML+
     (ta.levels? rowHTML('Resistance',ta.levels.resistance,'var(--red)')+rowHTML('Support',ta.levels.support,'var(--green)') : '<div class="sig-detail">Not enough history for level detection.</div>')+
