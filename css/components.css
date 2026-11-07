@@ -13,6 +13,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 0;
   font-weight:800;font-size:13px;color:#050510;font-family:'Space Grotesk',sans-serif;
   transition:transform .2s}
 .logo:hover .logo-mark{transform:scale(1.05)}
+/* Added after extraction: the mark is an inline SVG alpha, not a text glyph. */
+.logo-mark svg{width:24px;height:24px;fill:currentColor}
 .logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px}
 .logo-text span{color:var(--prec)}
 .screener-badge{padding:3px 9px;border-radius:4px;font-size:11px;font-weight:700;
